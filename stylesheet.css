@@ -1,0 +1,25 @@
+.even {
+  background-color: #eee;
+}
+
+.cell {
+  height: 8.5vh;
+}
+
+.main {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 10px;
+}
+
+.timecell {
+  width: 50px;
+  text-align: right;
+  padding-right: 5px;
+
+}
+
+.letterday {
+  height: 25px;
+  text-align: center;
+}

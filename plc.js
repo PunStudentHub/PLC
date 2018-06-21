@@ -15,6 +15,7 @@ Hi, Hunter Karas.
 */
 
 var subjects = [];
+var days = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 // name is a string
 // times is an array of an array of integers, length 2. times[0] is the day, times[1] is the time block
@@ -29,13 +30,36 @@ console.log(subjects.find(function (sub) {
   return sub.name === "AP Physics"
 }).times)
 
-function generate() {
-  for (var i = 0; i < 8; i++) {
-    var row = $('<tr></tr>').attr('id', 'row-' + i);
-    for (var j = 0; j < 6; j++) {
-      var cell = $('<td></td>').attr('row', i).attr('column', j);
-    }
+function gt(ind) {
+  var hour = (ind + 7) % 12; 
+  if (hour === 0) hour = 12;
+  return hour + ":30";
+}
 
-    $('table').append(row);
+function generateGrid() {
+
+  var row = $('<div></div>').attr('class', 'row');
+  row.append($('<div></div>').attr('class', 'timecell'));
+  for (var j = 0; j < 6; j++) {
+    var cell = $('<div></div>').attr('class', 'col letterday').html(days[j]);
+    row.append(cell)
+  }
+
+  $('#t').append(row);
+
+  for (var i = 0; i < 9; i++) {
+    row = $('<div></div>').attr('id', 'row-' + i).attr('class', 'row' + (i%2===0?' even':' odd'));
+    row.append($('<div></div>').attr('class', 'timecell').html(gt(i)))
+    for (var j = 0; j < 6; j++) {
+      var cell = $('<div></div>').attr('id', i + "-" + j).attr('class', 'col cell');
+      row.append(cell)
+    }
+    $('#t').append(row);
   }
 }
+
+function generateMenu() {
+  
+}
+
+generateGrid()
