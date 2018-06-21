@@ -6,6 +6,10 @@
   height: 8.5vh;
 }
 
+.highlighted {
+  background-color: red;
+}
+
 .main {
   padding-left: 5vw;
   padding-right: 5vw;
@@ -13,13 +17,24 @@
 }
 
 .timecell {
-  width: 50px;
+  width: 75px;
   text-align: right;
   padding-right: 5px;
-
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  flex-direction:column;
 }
 
 .letterday {
   height: 25px;
   text-align: center;
+}
+
+a.active {
+  color: white !important;
+}
+
+.list-group-item {
+  padding: 7px;
 }
