@@ -1,5 +1,3 @@
-"use strict";
-
 /*
 
 7:30 = 0
@@ -25,5 +23,19 @@ function Subject(name, times) {
   this.times = times;
 }
 
-
 subjects.push(new Subject("AP Physics", [[1, 2], [3, 4]]), new Subject("AP Chem", [[0, 1], [2, 3]]))
+
+console.log(subjects.find(function (sub) {
+  return sub.name === "AP Physics"
+}).times)
+
+function generate() {
+  for (var i = 0; i < 8; i++) {
+    var row = $('<tr></tr>').attr('id', 'row-' + i);
+    for (var j = 0; j < 6; j++) {
+      var cell = $('<td></td>').attr('row', i).attr('column', j);
+    }
+
+    $('table').append(row);
+  }
+}
